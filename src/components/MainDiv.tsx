@@ -1,6 +1,27 @@
 import '../styles/mainDiv.scss'
-import { dataType } from '../types/types'
-const MainDiv =({heading,inputs}: dataType)=>{
+
+interface customData{
+    heading: {
+        h4: string,
+        p: string
+    },
+    inputs: Array<{
+        label: string,
+        type: string,
+        id: string,
+        name: string,
+        displayName: string
+    }>
+    index: number,
+    setIndex: (index: number) => void,
+    next: number,
+    prev: number,
+    minLength: number,
+    maxLength: number,
+}
+
+const MainDiv =({heading,inputs, setIndex,index,next,minLength,maxLength,prev}: customData)=>{
+    console.log(index)
   return (
     <div className='mainDiv'>
         <div className='heading'>
@@ -16,8 +37,8 @@ const MainDiv =({heading,inputs}: dataType)=>{
             )
         })}
         <div className='button-group'>
-            <button type="submit">back</button>
-            <button type="submit">next</button>
+            {index > minLength && index !== maxLength?<button type="button" onClick={()=>setIndex(prev)}>back</button>: <></>}
+            {index === maxLength ? <button type="button" onClick={()=>setIndex(next)}>next</button>: <button type='button'> submit</button>      }
         </div>
     </div>
   )
