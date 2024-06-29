@@ -1,0 +1,57 @@
+.mainDiv{
+    // border: 1px solid black;
+    padding: 12px;
+    position: relative;
+    min-width: max-content;
+    font-size: 1rem;
+    .heading{
+        margin-bottom: 18px;
+        h4{
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin: 8px 0px;
+        }
+        p{
+            color: grey;
+            font-size: .9rem;
+        }
+    }
+    .input-group{
+        // border: 1px solid green;
+        margin: 20px 0px ;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        label{
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+        input{
+            padding: 10px 8px;
+            outline: none;
+            font-size: .9rem;
+            border-radius: 8px;
+            border: 1px solid black;
+        }
+    }
+    .button-group{
+        position: absolute;
+        bottom: 0px;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        button{
+            font-size: 1rem;
+            padding: 10px 18px;
+            background-color: rgba(25, 25, 194, 0.918);
+            color: wheat;
+            border-radius: 6px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba(4, 4, 180, 0.918);
+                color: wheat;
+            }
+        }
+    }
+}
