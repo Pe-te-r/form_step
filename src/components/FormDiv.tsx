@@ -29,9 +29,10 @@ function FormDiv() {
     }));
   };
 
-  const handleSubmit=()=>{
+  const handleSubmit=(e: any)=>{
+    e.preventDefault();
     console.log("Submited")
-    console.log(info)
+    console.log({...info})
   }
   
   console.log(info)

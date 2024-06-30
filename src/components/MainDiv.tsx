@@ -24,7 +24,6 @@ interface customData {
 
 
 const MainDiv =({heading,inputs, index, setIndex,next,minLength,maxLength,prev,setDetails,handleSubmit,info}: customData)=>{
-    // console.log(inputs)
     console.log(index,maxLength,minLength) 
   return (
     <div className='mainDiv'>
