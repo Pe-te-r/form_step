@@ -1,4 +1,3 @@
-// import { dataType } from "../types/types";
  export interface customDataType{
     heading: {
         h4: string,
@@ -32,7 +31,7 @@ function CustomHook(customData: customDataType[],index: number) {
         }
         return index
     }
-    function info(): customDataType{
+    function info(): any{
         return customData[index]
     }
 

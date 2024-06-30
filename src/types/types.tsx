@@ -1,4 +1,4 @@
-export type dataType= {
+export type dataType = {
     heading: {
         h4: string;
         p: string;

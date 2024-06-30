@@ -1,27 +1,31 @@
 import '../styles/mainDiv.scss'
 
-interface customData{
+interface customData {
     heading: {
-        h4: string,
-        p: string
-    },
-    inputs: Array<{
-        label: string,
-        type: string,
-        id: string,
-        name: string,
-        displayName: string
-    }>
-    index: number,
-    setIndex: (index: number) => void,
-    next: number,
-    prev: number,
-    minLength: number,
-    maxLength: number,
-}
+      h4: string;
+      p: string;
+    }
+    inputs: {
+      label: string;
+      type: string;
+      maxLength: number;
+      minLength: number;
+    }[];
+    index: number;
+    setIndex: any;
+    minLength: any;
+    maxLength: any;
+    next: any;
+    prev: any;
+    setDetails: any;
+    handleSubmit: any;
+    info: any;
+  }
 
-const MainDiv =({heading,inputs, setIndex,index,next,minLength,maxLength,prev}: customData)=>{
-    console.log(index)
+
+const MainDiv =({heading,inputs, index, setIndex,next,minLength,maxLength,prev,setDetails,handleSubmit,info}: customData)=>{
+    // console.log(inputs)
+    console.log(index,maxLength,minLength) 
   return (
     <div className='mainDiv'>
         <div className='heading'>
@@ -32,13 +36,13 @@ const MainDiv =({heading,inputs, setIndex,index,next,minLength,maxLength,prev}: 
             return(
             <div key={index} className='input-group'>
                     <label htmlFor={inputdiv.label}>{inputdiv.displayName}</label>
-                    <input type={inputdiv.type} id={inputdiv.id} name={inputdiv.name} required/>
+                    <input type={inputdiv.type} value={info[inputdiv.name]} onChange={(e)=>setDetails(inputdiv.name,e.target.value)} id={inputdiv.id} name={inputdiv.name} required/>
             </div>
             )
         })}
         <div className='button-group'>
             {index > minLength && index !== maxLength?<button type="button" onClick={()=>setIndex(prev)}>back</button>: <></>}
-            {index === maxLength ? <button type="button" onClick={()=>setIndex(next)}>next</button>: <button type='button'> submit</button>      }
+            {index+1  < maxLength ? <button type="button" onClick={()=>setIndex(next)}>next</button>: <button type='submit' onClick={handleSubmit}> submit</button>      }
         </div>
     </div>
   )
